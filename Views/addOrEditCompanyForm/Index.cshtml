@@ -1,0 +1,22 @@
+﻿@using Test.Models
+@model Company
+
+
+<title>@ViewBag.Title</title>
+
+@using (Html.BeginForm("Route", "addOrEditCompanyForm", FormMethod.Post))
+{
+    <p>ID: </p>
+    @Html.TextBox("Id", @Model.Id, new { @disabled = "true" })
+    <p></p>
+    <p>Название: </p>
+    @Html.TextBox("Name", @Model.Name)
+    <p></p>
+    <p>Организационно-правовая форма: </p>
+    @Html.TextBox("OrgLegalFormName", @Model.OrgLegalFormName)
+    <p></p>
+    <p>Количество сотрудников: </p>
+    @Html.TextBox("SizeOfCompany", @Model.SizeOfCompany, new { @disabled = "true" })
+    <p></p>
+    <p><input type="submit" value="Отправить" /></p>
+}

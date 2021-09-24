@@ -1,0 +1,35 @@
+﻿@using Test.Models
+@model Worker
+
+
+<title>@ViewBag.Title</title>
+
+@using (Html.BeginForm("Route", "addOrEditWorkerForm", FormMethod.Post))
+{
+    <p>ID: </p>
+    @Html.TextBox("Id", @Model.Id, new { @disabled = "true" })
+    <p></p>
+    <p>Фамилия: </p>
+    @Html.TextBox("FirstName", @Model.FirstName)
+    <p></p>
+    <p>Имя: </p>
+    @Html.TextBox("SecondName", @Model.SecondName)
+    <p></p>
+    <p>Отчество: </p>
+    @Html.TextBox("Patronymic", @Model.Patronymic)
+    <p></p>
+    <p>Дата приема на работу: </p>
+    @Html.TextBoxFor(model => model.DateRecruitment, new
+    {
+        @class = "form-control",
+        type = "date"
+    })
+    <p></p>
+    <p>Должность: </p>
+    <select name="Position"><option value="Разработчик">Разработчик</option><option value="Тестировщик">Тестировщик</option><option value="Бизнесаналитик">Бизнесаналитик</option><option value="Менеджер">Менеджер</option></select>
+    <p></p>
+    <p>Компания: </p>
+    @Html.TextBox("Company", @Model.Company)
+    <p></p>
+    <p><input type="submit" value="Отправить" /></p>
+}
